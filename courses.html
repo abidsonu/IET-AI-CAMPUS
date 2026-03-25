@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Courses</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#f5f7fb;
+}
+
+header{
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+color:white;
+padding:18px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+header h1{
+font-size:20px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+}
+
+.container{
+padding:40px;
+}
+
+.title{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.subtitle{
+color:#666;
+margin-bottom:30px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:14px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+transition:.2s;
+border-top:5px solid #2563eb;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.course-name{
+font-size:20px;
+font-weight:600;
+margin-bottom:10px;
+}
+
+.desc{
+color:#555;
+margin-bottom:15px;
+line-height:1.5;
+}
+
+.info{
+margin-top:10px;
+font-size:14px;
+color:#444;
+}
+
+.label{
+font-weight:600;
+}
+
+footer{
+margin-top:40px;
+background:#111827;
+color:white;
+text-align:center;
+padding:25px;
+}
+
+@media(max-width:768px){
+.container{padding:20px}
+header{padding:15px 20px}
+}
+
+</style>
+</head>
+
+<body>
+
+    <header>
+        <h1>IET AI CAMPUS </h1>
+      <nav>
+        <a href="indux.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="announcements.html">Announcements</a>
+        <a href="assistant.html">Assistant</a>
+        <a href="studytips.html">Study Tips</a>
+        <a href="studysupport.html">Study Support</a>
+        <a href="attendance.html">Attendance</a>
+        <a href="profile.html">Profile</a>
+        <a href="faculty.html">Faculty</a>
+      </nav>
+    </header>
+
+<div class="container">
+
+<h2 class="title">Available Courses</h2>
+<p class="subtitle">Explore courses, faculty and duration</p>
+
+<div class="grid">
+
+<div class="card">
+<div class="course-name">Artificial Intelligence Fundamentals</div>
+<div class="desc">Introduction to AI concepts including machine learning, neural networks and smart campus applications.</div>
+<div class="info"><span class="label">Faculty:</span> Dr. Anil Kumar</div>
+<div class="info"><span class="label">Duration:</span> 12 Weeks</div>
+</div>
+
+<div class="card">
+<div class="course-name">Web Development</div>
+<div class="desc">Learn HTML, CSS and JavaScript to build responsive websites and student portals.</div>
+<div class="info"><span class="label">Faculty:</span> Ms. Neha Sharma</div>
+<div class="info"><span class="label">Duration:</span> 10 Weeks</div>
+</div>
+
+<div class="card">
+<div class="course-name">Database Management Systems</div>
+<div class="desc">Study database design, SQL queries, normalization and campus data management.</div>
+<div class="info"><span class="label">Faculty:</span> Mr. Rahul Nair</div>
+<div class="info"><span class="label">Duration:</span> 8 Weeks</div>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 AI Smart Campus Assistant Portal
+</footer>
+
+</body>
+</html>

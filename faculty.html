@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faculty Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:#f5f7fb}
+
+header{
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+color:white;
+padding:18px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px;
+}
+
+.title{
+font-size:30px;
+margin-bottom:20px;
+}
+
+.profile-card{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+display:grid;
+grid-template-columns:120px 1fr;
+gap:20px;
+align-items:center;
+margin-bottom:25px;
+}
+
+.avatar{
+width:100px;
+height:100px;
+border-radius:50%;
+background:#eef2ff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:36px;
+font-weight:700;
+color:#2563eb;
+}
+
+.info p{
+margin-bottom:6px;
+color:#555;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+.card h4{
+margin-bottom:15px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th,td{
+padding:10px;
+border-bottom:1px solid #eee;
+text-align:left;
+font-size:14px;
+}
+
+th{
+background:#eef2ff;
+}
+
+.announcement{
+padding:10px;
+background:#eef2ff;
+border-radius:8px;
+margin-bottom:10px;
+font-size:14px;
+}
+
+footer{
+margin-top:40px;
+background:#111827;
+color:white;
+text-align:center;
+padding:25px;
+}
+
+</style>
+</head>
+
+<body>
+
+    <header>
+        <h1>IET AI CAMPUS </h1>
+      <nav>
+        <a href="indux.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="announcements.html">Announcements</a>
+        <a href="assistant.html">Assistant</a>
+        <a href="studytips.html">Study Tips</a>
+        <a href="studysupport.html">Study Support</a>
+        <a href="attendance.html">Attendance</a>
+        <a href="profile.html">Profile</a>
+        <a href="faculty.html">Faculty</a>
+      </nav>
+    </header>
+
+<div class="container">
+<h2 class="title">Faculty Profile</h2>
+
+<div class="profile-card">
+<div class="avatar">A</div>
+<div class="info">
+<h3>Dr. Anil Kumar</h3>
+<p><strong>Department:</strong> Computer Science</p>
+<p><strong>Subjects Handled:</strong> Artificial Intelligence, Machine Learning</p>
+<p><strong>Email:</strong> anil.kumar@campus.edu</p>
+<p><strong>Contact:</strong> +91 98765 43210</p>
+</div>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h4>Faculty Timetable</h4>
+<table>
+<tr>
+<th>Day</th>
+<th>Subject</th>
+<th>Time</th>
+</tr>
+<tr>
+<td>Monday</td>
+<td>Artificial Intelligence</td>
+<td>10:00 - 11:00</td>
+</tr>
+<tr>
+<td>Tuesday</td>
+<td>Machine Learning</td>
+<td>11:00 - 12:00</td>
+</tr>
+<tr>
+<td>Wednesday</td>
+<td>Artificial Intelligence</td>
+<td>09:00 - 10:00</td>
+</tr>
+<tr>
+<td>Thursday</td>
+<td>Project Guidance</td>
+<td>01:00 - 02:00</td>
+</tr>
+<tr>
+<td>Friday</td>
+<td>Machine Learning</td>
+<td>10:00 - 11:00</td>
+</tr>
+</table>
+</div>
+
+<div class="card">
+<h4>Faculty Announcements</h4>
+
+<div class="announcement">
+AI Assignment submission deadline: March 30
+</div>
+
+<div class="announcement">
+Mini project topic discussion on April 3
+</div>
+
+<div class="announcement">
+Extra class scheduled on Monday 2 PM
+</div>
+
+<div class="announcement">
+Internal exam syllabus uploaded to portal
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 AI Smart Campus Assistant Portal
+</footer>
+
+</body>
+</html>

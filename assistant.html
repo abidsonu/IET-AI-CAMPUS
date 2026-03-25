@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Campus Assistant</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#f5f7fb;
+}
+
+header{
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+color:white;
+padding:18px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+}
+
+.container{
+padding:40px;
+max-width:900px;
+margin:auto;
+}
+
+.title{
+font-size:30px;
+margin-bottom:10px;
+}
+
+.subtitle{
+color:#666;
+margin-bottom:20px;
+}
+
+.chat-container{
+background:white;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+overflow:hidden;
+}
+
+.chat-box{
+height:400px;
+padding:20px;
+overflow-y:auto;
+background:#fafafa;
+}
+
+.message{
+margin-bottom:15px;
+max-width:70%;
+padding:12px;
+border-radius:10px;
+}
+
+.user{
+background:#2563eb;
+color:white;
+margin-left:auto;
+}
+
+.bot{
+background:#e5e7eb;
+}
+
+.input-area{
+display:flex;
+border-top:1px solid #ddd;
+}
+
+.input-area input{
+flex:1;
+padding:15px;
+border:none;
+outline:none;
+}
+
+.input-area button{
+padding:15px 20px;
+border:none;
+background:#7c3aed;
+color:white;
+cursor:pointer;
+}
+
+.suggestions{
+padding:15px;
+background:#fff;
+border-bottom:1px solid #eee;
+font-size:14px;
+color:#555;
+}
+
+footer{
+margin-top:40px;
+background:#111827;
+color:white;
+text-align:center;
+padding:25px;
+}
+
+</style>
+</head>
+
+<body>
+
+    <header>
+        <h1>IET AI CAMPUS </h1>
+      <nav>
+        <a href="indux.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="announcements.html">Announcements</a>
+        <a href="assistant.html">Assistant</a>
+        <a href="studytips.html">Study Tips</a>
+        <a href="studysupport.html">Study Support</a>
+        <a href="attendance.html">Attendance</a>
+        <a href="profile.html">Profile</a>
+        <a href="faculty.html">Faculty</a>
+      </nav>
+    </header>
+
+<div class="container">
+<h2 class="title">AI Campus Assistant</h2>
+<p class="subtitle">Ask about exams, courses, holidays and campus info</p>
+
+<div class="chat-container">
+
+<div class="suggestions">
+Try: "exam date", "course details", "holiday list", "faculty", "events"
+</div>
+
+<div class="chat-box" id="chatBox">
+<div class="message bot">Hello! I am your Smart Campus Assistant. How can I help you?</div>
+</div>
+
+<div class="input-area">
+<input type="text" id="userInput" placeholder="Type your question...">
+<button onclick="sendMessage()">Send</button>
+</div>
+
+</div>
+</div>
+
+<footer>
+© 2026 AI Smart Campus Assistant Portal
+</footer>
+
+<script>
+function sendMessage(){
+
+let input = document.getElementById("userInput");
+let message = input.value.toLowerCase().trim();
+
+if(message === "") return;
+
+addMessage(message, "user");
+
+let response = "Sorry, I didn't understand. Please try another question.";
+
+// keyword matching logic
+if(message.includes("exam")){
+response = "Mid semester exams start from April 12, 2026.";
+}
+
+else if(message.includes("course")){
+response = "Available courses: AI Fundamentals, Web Development, Database Management Systems.";
+}
+
+else if(message.includes("holiday")){
+response = "Upcoming holidays: March 31 - Festival Holiday, April 14 - Public Holiday.";
+}
+
+else if(message.includes("faculty")){
+response = "Faculty: Dr. Anil Kumar (AI), Ms. Neha Sharma (Web), Mr. Rahul Nair (DBMS).";
+}
+
+else if(message.includes("event")){
+response = "Upcoming events: AI Workshop on April 5 and Tech Fest on April 20.";
+}
+
+setTimeout(()=>{
+addMessage(response, "bot");
+},500);
+
+input.value = "";
+}
+
+function addMessage(text, type){
+let chatBox = document.getElementById("chatBox");
+
+let div = document.createElement("div");
+div.classList.add("message", type);
+div.innerText = text;
+
+chatBox.appendChild(div);
+chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// enter key support
+
+document.getElementById("userInput").addEventListener("keypress", function(e){
+if(e.key === "Enter"){
+sendMessage();
+}
+});
+
+</script>
+
+</body>
+</html>

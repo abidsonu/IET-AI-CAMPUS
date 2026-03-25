@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attendance Management</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:#f5f7fb}
+
+header{
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+color:white;
+padding:18px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px;
+}
+
+.title{
+font-size:30px;
+margin-bottom:10px;
+}
+
+.subtitle{
+color:#666;
+margin-bottom:25px;
+}
+
+.summary{
+background:white;
+padding:20px;
+border-radius:12px;
+margin-bottom:20px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+.percentage{
+font-size:26px;
+font-weight:700;
+}
+
+.low{
+color:#ef4444;
+}
+
+.good{
+color:#10b981;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+border-radius:12px;
+overflow:hidden;
+}
+
+th,td{
+padding:14px;
+text-align:left;
+border-bottom:1px solid #eee;
+}
+
+th{
+background:#eef2ff;
+}
+
+.low-row{
+background:#fee2e2;
+}
+
+.form-box{
+background:white;
+padding:20px;
+border-radius:12px;
+margin-top:25px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+input{
+padding:10px;
+margin-right:10px;
+border-radius:6px;
+border:1px solid #ddd;
+}
+
+button{
+padding:10px 16px;
+border:none;
+background:#2563eb;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+footer{
+margin-top:40px;
+background:#111827;
+color:white;
+text-align:center;
+padding:25px;
+}
+
+</style>
+</head>
+
+<body>
+
+    <header>
+        <h1>IET AI CAMPUS </h1>
+      <nav>
+        <a href="indux.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="announcements.html">Announcements</a>
+        <a href="assistant.html">Assistant</a>
+        <a href="studytips.html">Study Tips</a>
+        <a href="studysupport.html">Study Support</a>
+        <a href="attendance.html">Attendance</a>
+        <a href="profile.html">Profile</a>
+        <a href="faculty.html">Faculty</a>
+      </nav>
+    </header>
+
+<div class="container">
+<h2 class="title">Attendance Management</h2>
+<p class="subtitle">View subject wise attendance and overall percentage</p>
+
+<div class="summary">
+Overall Attendance: <span class="percentage" id="overall">0%</span>
+</div>
+
+<table id="attendanceTable">
+<thead>
+<tr>
+<th>Subject</th>
+<th>Attended</th>
+<th>Total</th>
+<th>Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Artificial Intelligence</td>
+<td>18</td>
+<td>24</td>
+<td class="percent">75</td>
+</tr>
+<tr>
+<td>Web Development</td>
+<td>15</td>
+<td>24</td>
+<td class="percent">62</td>
+</tr>
+<tr>
+<td>Database Management</td>
+<td>20</td>
+<td>25</td>
+<td class="percent">80</td>
+</tr>
+</tbody>
+</table>
+
+<div class="form-box">
+<h3>Add / Update Attendance</h3>
+<br>
+<input type="text" id="subject" placeholder="Subject">
+<input type="number" id="attended" placeholder="Attended">
+<input type="number" id="total" placeholder="Total">
+<button onclick="addAttendance()">Add / Update</button>
+</div>
+
+</div>
+
+<footer>
+© 2026 AI Smart Campus Assistant Portal
+</footer>
+
+<script>
+function calculate(){
+let rows = document.querySelectorAll("#attendanceTable tbody tr");
+let sum=0;
+let count=0;
+
+rows.forEach(row=>{
+let attended=row.cells[1].innerText;
+let total=row.cells[2].innerText;
+let percent=Math.round((attended/total)*100);
+
+row.cells[3].innerText=percent+"%";
+
+row.classList.remove("low-row");
+
+if(percent<75){
+row.classList.add("low-row");
+}
+
+sum+=percent;
+count++;
+});
+
+let overall=Math.round(sum/count);
+
+let overallEl=document.getElementById("overall");
+overallEl.innerText=overall+"%";
+
+if(overall<75){
+overallEl.classList.add("low");
+}else{
+overallEl.classList.add("good");
+}
+}
+
+function addAttendance(){
+let subject=document.getElementById("subject").value;
+let attended=document.getElementById("attended").value;
+let total=document.getElementById("total").value;
+
+if(subject==""||attended==""||total=="") return;
+
+let table=document.getElementById("attendanceTable").getElementsByTagName("tbody")[0];
+
+let row=table.insertRow();
+row.insertCell(0).innerText=subject;
+row.insertCell(1).innerText=attended;
+row.insertCell(2).innerText=total;
+row.insertCell(3).innerText="0%";
+
+calculate();
+}
+
+calculate();
+</script>
+
+</body>
+</html>

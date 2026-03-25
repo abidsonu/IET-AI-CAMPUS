@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Tips</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+body{background:#f5f7fb}
+
+header{
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+color:white;
+padding:18px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:40px;
+}
+
+.title{
+font-size:30px;
+margin-bottom:10px;
+}
+
+.subtitle{
+color:#666;
+margin-bottom:25px;
+}
+
+.tip-box{
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+min-height:120px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+font-size:18px;
+margin-bottom:25px;
+}
+
+.controls{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+button{
+padding:12px 18px;
+border:none;
+border-radius:8px;
+background:#2563eb;
+color:white;
+cursor:pointer;
+}
+
+select{
+padding:12px;
+border-radius:8px;
+border:1px solid #ddd;
+}
+
+footer{
+margin-top:40px;
+background:#111827;
+color:white;
+text-align:center;
+padding:25px;
+}
+
+</style>
+</head>
+
+<body>
+
+    <header>
+        <h1>IET AI CAMPUS </h1>
+      <nav>
+        <a href="indux.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="announcements.html">Announcements</a>
+        <a href="assistant.html">Assistant</a>
+        <a href="studytips.html">Study Tips</a>
+        <a href="studysupport.html">Study Support</a>
+        <a href="attendance.html">Attendance</a>
+        <a href="profile.html">Profile</a>
+        <a href="faculty.html">Faculty</a>
+      </nav>
+    </header>
+
+<div class="container">
+<h2 class="title">Smart Study Tips</h2>
+<p class="subtitle">Get dynamic study tips based on your selection</p>
+
+<div class="tip-box" id="tipBox">
+Click a button or select category to get study tips
+</div>
+
+<div class="controls">
+<select id="category">
+<option value="general">General Tips</option>
+<option value="exam">Exam Preparation</option>
+<option value="time">Time Management</option>
+<option value="memory">Memory Tips</option>
+</select>
+
+<button onclick="getTip()">Get Tip</button>
+<button onclick="randomTip()">Random Tip</button>
+</div>
+
+</div>
+
+<footer>
+© 2026 AI Smart Campus Assistant Portal
+</footer>
+
+<script>
+const tips = {
+
+general:[
+"Study in short sessions with regular breaks.",
+"Keep your study area clean and distraction free.",
+"Review notes daily for better understanding.",
+"Practice active learning instead of passive reading."
+],
+
+exam:[
+"Start revision at least one week before exam.",
+"Solve previous year question papers.",
+"Focus on important topics and formulas.",
+"Avoid last minute cramming before exam."
+],
+
+time:[
+"Use Pomodoro technique: 25 min study + 5 min break.",
+"Create daily study timetable.",
+"Prioritize difficult subjects first.",
+"Avoid multitasking while studying."
+],
+
+memory:[
+"Use mind maps for better memory.",
+"Teach someone else what you learned.",
+"Use flashcards for quick revision.",
+"Repeat important concepts regularly."
+]
+};
+
+function getTip(){
+let category = document.getElementById("category").value;
+let categoryTips = tips[category];
+
+let random = Math.floor(Math.random()*categoryTips.length);
+
+document.getElementById("tipBox").innerText = categoryTips[random];
+}
+
+function randomTip(){
+let allCategories = Object.keys(tips);
+let randomCategory = allCategories[Math.floor(Math.random()*allCategories.length)];
+
+let categoryTips = tips[randomCategory];
+let random = Math.floor(Math.random()*categoryTips.length);
+
+
+document.getElementById("tipBox").innerText = categoryTips[random];
+}
+</script>
+
+</body>
+</html>
